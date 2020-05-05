@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <script>
+            
+            var fun2 = () => {
+              setTimeout(() => {
+                  console.log("fun2 is started");
+              }, 2000);
+              console.log("fun2 ended");
+            };
+            
+            var fun1 = () =>{
+                console.log("fun1 started");
+                fun2();
+                console.log("fun1 ended");
+            };
+            
+            fun1();
+            
+            function person(name, age, height){
+                this.name = name;
+                this.age = age;
+                this.height = height;
+            }
+            
+            var p1 = new person("john", 34, 5.6);
+            
+            var arr = () => {
+              var num = new Array();
+              
+              for(let i = 0; i < 10; i++){
+                  num[i] = i + 2;
+              }
+              
+              for (i in num){
+                  document.write(num[i] + "<br>");
+              }
+              document.write("<br>");
+            };
+            
+            arr();
+            function sum(a, b){
+                if(isNaN(a) || isNaN(b)){
+                    throw "parameter is not number";
+                }
+                else{
+                    document.write("<br><br> Sum: " + (a + b));
+                }
+            }
+            var js = '{"result" : "true", "count" : 65}';
+            var j = JSON.parse(js);
+            document.write(j.result);
+            document.write("<br>" + JSON.stringify(j));
+            
+            try {
+                sum(3, 'e');
+            }catch (e){
+                document.write("<br><br>" + e);
+            }
+            
+            
+            
+        </script>
+        
+    </body>
+</html>
